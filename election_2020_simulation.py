@@ -1,6 +1,6 @@
 import random
 
-
+#
 def state(State_name,electoral_college,trump_odds,biden_odds):
     a =random.choices(
         population = [['Trump', 'Biden'],['Biden', 'Trump']],
@@ -9,12 +9,12 @@ def state(State_name,electoral_college,trump_odds,biden_odds):
     return a[0][0]
 
 def main():
-    for i in range(0,10): 
+    for i in range(0,10):
         Biden_wins = 0
         Trump_wins = 0
         number_of_sims = 1000
         for i in range(0,number_of_sims):
-            
+
             Biden = 0
             Trump = 0
             state_name = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
@@ -35,9 +35,9 @@ def main():
                           0.02,0.15,0.01,0.91,0.95,0.97,0.61,0.95,0.01,
                           0.01,0.01,0.99,0.06,0.99]
 
-            
-            
-           
+
+
+
             for i in range(len(state_name)):
                 winner = state(state_name[i],elec_votes[i],trump_odds[i],1-trump_odds[i])
                 if winner == "Trump":
@@ -50,7 +50,7 @@ def main():
                 Trump_wins +=1
 
         print(f"After {number_of_sims} simulations, Joe Biden wins {Biden_wins} times and Trump wins {Trump_wins} times")
-              
+
 
 if __name__ == '__main__':
     main()
